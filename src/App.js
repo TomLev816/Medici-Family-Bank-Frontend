@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Homepage from './components/Homepage.js';
+import FamilyMemberShow from './components/FamilyMemberShow.js'
 
 class App extends Component {
   state = {
-    allFamilyMembers: []
+    allFamilyMembers: [],
+    selectedFamilyMember: '',
+    selectedPage: 'homepage'
   }
 
   componentDidMount = () => {
@@ -17,10 +20,19 @@ class App extends Component {
       })
   }
 
+  changeSelectFamilyMember = (familyMemberObj, page) => {
+    this.setState({
+      selectedFamilyMember: familyMemberObj,
+      selectedPage: page
+    }, () => console.log(this.state.selectedPage));
+  }
+
+
   render() {
     return (
       <div className="App">
-        <Homepage />
+        {this.state.selectedPage === 'homepage'? <Homepage allFamilyMembers={this.state.allFamilyMembers} changeSelectFamilyMember={this.changeSelectFamilyMember}/> : null}
+        {this.state.selectedPage === 1 ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectFamilyMember={this.changeSelectFamilyMember}/> : null}
       </div>
     );
   }

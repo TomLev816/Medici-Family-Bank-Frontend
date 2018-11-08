@@ -23,6 +23,7 @@ export default class Homepage extends Component {
 
 
   render() {
+    console.log(this.props.allFamilyMembers);
     return (
       <div className='homepage'>
         <div className='homePageImage'>
@@ -31,8 +32,10 @@ export default class Homepage extends Component {
             <Menu
               menuDisplay={this.state.menuDisplay}
               changeMenuState={this.changeMenuState}
-              openFamilyMembers={this.props.openFamilyMembers}
+              openFamilyMembers={this.openFamilyMembers}
               familyMemberDisplay={this.state.familyMemberDisplay}
+              allFamilyMembers={this.props.allFamilyMembers}
+              changeSelectFamilyMember={this.props.changeSelectFamilyMember}
             />
           </div>
         </div>

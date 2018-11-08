@@ -20,3 +20,10 @@ code {
     background-position: center center;
   min-height: 1000px;
 }
+
+.familyMemberShowPage {
+  padding: 20px;
+  max-width: 50%;
+  min-height: 100%;
+  background: rgb(256,256,256,.5)
+}
