@@ -10,6 +10,7 @@ let menuDisplay = (props) => {
         <div onClick={props.openFamilyMembers}
           > Select Family Member</div>
         {props.familyMemberDisplay ? <Members allFamilyMembers={props.allFamilyMembers} changeSelectFamilyMember={props.changeSelectFamilyMember} /> : null}
+        <div>Login</div>
       </div>
     )
   }

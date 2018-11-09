@@ -31,8 +31,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.selectedPage === 'homepage'? <Homepage allFamilyMembers={this.state.allFamilyMembers} changeSelectFamilyMember={this.changeSelectFamilyMember}/> : null}
-        {this.state.selectedPage === 1 ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectFamilyMember={this.changeSelectFamilyMember}/> : null}
+        <Homepage allFamilyMembers={this.state.allFamilyMembers} changeSelectFamilyMember={this.changeSelectFamilyMember}/>
+        {this.state.selectedPage === 'familyMemberShow' ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectFamilyMember={this.changeSelectFamilyMember}/> : null}
       </div>
     );
   }

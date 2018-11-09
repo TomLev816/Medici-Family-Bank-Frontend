@@ -25,21 +25,22 @@ export default class Homepage extends Component {
   render() {
     console.log(this.props.allFamilyMembers);
     return (
-      <div className='homepage'>
-        <div className='homePageImage'>
-          <div>
-            <h1>MEDICI FAMILY</h1>
-            <Menu
-              menuDisplay={this.state.menuDisplay}
-              changeMenuState={this.changeMenuState}
-              openFamilyMembers={this.openFamilyMembers}
-              familyMemberDisplay={this.state.familyMemberDisplay}
-              allFamilyMembers={this.props.allFamilyMembers}
-              changeSelectFamilyMember={this.props.changeSelectFamilyMember}
-            />
-          </div>
-        </div>
+    <div className='App-header'>
+      <div className='familyName'>
+        <h1>MEDICI FAMILY</h1>
       </div>
+      <div className='logo'></div>
+      <div className='familyMenu'>
+        <Menu
+          menuDisplay={this.state.menuDisplay}
+          changeMenuState={this.changeMenuState}
+          openFamilyMembers={this.openFamilyMembers}
+          familyMemberDisplay={this.state.familyMemberDisplay}
+          allFamilyMembers={this.props.allFamilyMembers}
+          changeSelectFamilyMember={this.props.changeSelectFamilyMember}
+        />
+      </div>
+    </div>
     );
   }
 

@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-image:
+    url('./images/medici_homepage.jpg');
+    background-size: cover;
+    background-position: center center;
+  min-height: 1000px;
+  opacity: .85;
 }
 
 .App-logo {
@@ -8,15 +14,39 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  align-items: flex-start;
+  opacity: .85;
+}
+
+.familyName {
+  width: 33%;
+  background-color: #282c34;
+  font-size: calc(20px);
+  color: white;
+  min-height: 100px;
+}
+
+.logo {
+  width: 34%;
+  min-height: 100px;
+  background-image:
+    url('./images/Medici_bank_logo.jpg');
+    background-size: contain;
+    background-position: center;
+}
+
+.familyMenu {
+  width: 33%;
+  min-height: 100px;
+  background-color: #282c34;
+  font-size: calc(20px);
   color: white;
 }
+
+
+
 
 .App-link {
   color: #61dafb;
@@ -29,4 +59,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.familyMemberShowPage {
+  padding: 20px;
+  max-width: 50%;
+  min-height: 100%;
+  background: rgb(256,256,256,.5)
 }
