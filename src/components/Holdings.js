@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Holding from "./Holding.js"
 
 
 export default class Holdings extends Component {
@@ -9,7 +10,7 @@ export default class Holdings extends Component {
     })
     console.log(filteredCurrency);
     return <div>Florins: {filteredCurrency[0].value}</div>
-  }
+  }//end of render currency 
 
   renderHoldings = () => {
     const filteredTangibleAssets = this.props.allTangibleAssets.filter((tangibleAsset) => {
@@ -18,10 +19,10 @@ export default class Holdings extends Component {
 
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
-    // console.log(allSelectedHoldings)
+    return filteredTangibleAssets.map( asset => <Holding key={asset.id} asset={asset}/>)
 
+  }// end of render holdings
 
-  }
   render() {
     // console.log(this.props);
     return (
