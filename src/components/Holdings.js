@@ -7,7 +7,8 @@ export default class Holdings extends Component {
     const filteredCurrency = this.props.allCurrencyHoldings.filter((currency) => {
       return currency.family_member_id === this.props.selectedFamilyMember.id
     })
-    return <div>Florins: {this.filteredCurrency}</div>
+    console.log(filteredCurrency);
+    return <div>Florins: {filteredCurrency[0].value}</div>
   }
 
   renderHoldings = () => {
