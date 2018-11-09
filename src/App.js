@@ -8,6 +8,7 @@ import Holdings from './components/Holdings.js'
 import AboutPage from './components/AboutPage.js'
 
 
+
 class App extends Component {
   state = {
     allFamilyMembers: [],
@@ -22,6 +23,9 @@ class App extends Component {
     this.fetchTangiableAssets()
     this.fetchCurrencyHoldings()
   }
+
+
+
 
   fetchFamilyMembers = () => {
   fetch('http://localhost:3000/api/v1/family_members')
@@ -75,8 +79,7 @@ class App extends Component {
             <Holdings allTangibleAssets={this.state.allTangibleAssets}
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
-              /> : null}
-          {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}
+              /> : null}    
         </>
   }
   render() {

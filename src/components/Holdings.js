@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Holding from "./Holding.js"
+import Swiper from 'react-id-swiper';
+// import Holding from "./Holding.js"
+
 
 
 export default class Holdings extends Component {
@@ -19,19 +21,36 @@ export default class Holdings extends Component {
 
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
-    return filteredTangibleAssets.map( asset => <Holding key={asset.id} asset={asset}/>)
+    return filteredTangibleAssets.map( (asset) => {
+      return <div className="slider-holder">
+        <h1>{asset.name}</h1>
+        <h3>Asset Value: {asset.value}</h3>
+        <img className="main-image" src={asset.image_src} alt=""></img>
+        <p>{asset.description}</p>
+      </div>
+    })
 
   }// end of render holdings
 
   render() {
-    // console.log(this.props);
+
+    const params = {
+       slidesPerView: 3,
+       spaceBetween: 30,
+       pagination: {
+         el: '.swiper-pagination',
+         clickable: true,
+       }
+     };
+
     return (
       <div className="main-container">
         <h1>Holdings of {this.props.selectedFamilyMember.name} </h1>
         {this.renderCurrency()}
-        {this.renderHoldings()}
+        <Swiper {...params}>
+          {this.renderHoldings()}
+        </Swiper>
       </div>
     );
   }
-
 }
