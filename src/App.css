@@ -46,7 +46,10 @@
 }
 
 
-
+.holdingsContainer {
+  color: rgba(89, 23, 14);
+  background: rgb(256,256,256,.5)
+}
 
 .App-link {
   color: #61dafb;
