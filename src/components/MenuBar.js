@@ -3,7 +3,7 @@ import Menu from './Menu';
 // <img src={require('../images/medici_homepage.jpg')} alt=''></img>
 
 
-export default class Homepage extends Component {
+export default class MenuBar extends Component {
   state = {
     menuDisplay: false,
     familyMemberDisplay: false

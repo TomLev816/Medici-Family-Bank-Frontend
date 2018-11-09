@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Homepage from './components/Homepage.js';
+import MenuBar from './components/MenuBar.js';
 import FamilyMemberShow from './components/FamilyMemberShow.js'
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Homepage allFamilyMembers={this.state.allFamilyMembers} changeSelectFamilyMember={this.changeSelectFamilyMember}/>
+        <MenuBar allFamilyMembers={this.state.allFamilyMembers} changeSelectFamilyMember={this.changeSelectFamilyMember}/>
         {this.state.selectedPage === 'familyMemberShow' ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectFamilyMember={this.changeSelectFamilyMember}/> : null}
       </div>
     );
