@@ -10,7 +10,7 @@ export default class Holdings extends Component {
     })
     console.log(filteredCurrency);
     return <div>Florins: {filteredCurrency[0].value}</div>
-  }//end of render currency 
+  }//end of render currency
 
   renderHoldings = () => {
     const filteredTangibleAssets = this.props.allTangibleAssets.filter((tangibleAsset) => {
@@ -26,7 +26,7 @@ export default class Holdings extends Component {
   render() {
     // console.log(this.props);
     return (
-      <div className="holdingsContainer">
+      <div className="main-container">
         <h1>Holdings of {this.props.selectedFamilyMember.name} </h1>
         {this.renderCurrency()}
         {this.renderHoldings()}

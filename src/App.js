@@ -5,6 +5,8 @@ import Menu from './components/Menu.js'
 import Members from './components/Members.js'
 import FamilyMemberShow from './components/FamilyMemberShow.js'
 import Holdings from './components/Holdings.js'
+import AboutPage from './components/AboutPage.js'
+
 
 class App extends Component {
   state = {
@@ -74,6 +76,7 @@ class App extends Component {
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
               /> : null}
+          {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}
         </>
   }
   render() {

@@ -45,8 +45,13 @@
   color: white;
 }
 
+.tuscany-map{
+  width: 400px;
+  height: auto;
+}
 
-.holdingsContainer {
+
+.main-container {
   color: rgba(89, 23, 14);
   background: rgb(256,256,256,.5)
 }
