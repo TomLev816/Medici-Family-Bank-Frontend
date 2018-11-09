@@ -7,7 +7,7 @@ class AboutPage extends Component {
     return (
       <div className="main-container">
       <h1>About the Medici</h1>
-      <img className="tuscany-map"src="https://media.davidrumsey.com/rumsey/Size4/D5005/1202038.jpg"></img>
+      <img className="main-image" src="https://media.davidrumsey.com/rumsey/Size4/D5005/1202038.jpg"></img>
       <p>
       The House of Medici was an Italian banking family and political dynasty that first began to gather prominence under Cosimo de' Medici in the Republic of Florence during the first half of the 15th century. The family originated in the Mugello region of Tuscany and prospered gradually until it was able to fund the Medici Bank. This bank was the largest in Europe during the 15th century, and it facilitated the Medicis' rise to political power in Florence, although they officially remained citizens rather than monarchs until the 16th century.
 

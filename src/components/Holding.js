@@ -10,7 +10,7 @@ class Holding extends Component {
       <div>
       <h1>{this.props.asset.name}</h1>
       <h3>Asset Value: {this.props.asset.value}</h3>
-      <img src={this.props.asset.image_src}></img>
+      <img className="main-image" src={this.props.asset.image_src} alt=""></img>
       <p>{this.props.asset.description}</p>
 
       </div>
