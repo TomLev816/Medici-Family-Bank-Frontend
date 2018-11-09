@@ -22,7 +22,7 @@ export default class Holdings extends Component {
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
     return filteredTangibleAssets.map( (asset) => {
-      return <div className="slider-holder">
+      return <div className="slider-holder" onClick={() => console.log(asset)}>
         <h1>{asset.name}</h1>
         <h3>Asset Value: {asset.value}</h3>
         <img className="main-image" src={asset.image_src} alt=""></img>
