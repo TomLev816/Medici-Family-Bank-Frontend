@@ -4,7 +4,7 @@
     url('./images/medici_homepage.jpg');
     background-size: cover;
     background-position: center center;
-  min-height: 1000px;
+  min-height: 100vh;
   opacity: .85;
 }
 
@@ -45,9 +45,23 @@
   color: white;
 }
 
-.main-image{
+.holdings-image{
   width: 400px;
-  height: auto;
+  height: 400px;
+}
+
+.members-page-container {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+}
+
+.members-image{
+  width: 400px;
+  height: 500px;
 }
 
 .slider-holder {
@@ -58,6 +72,11 @@
 .main-container {
   color: rgba(89, 23, 14);
   background: rgb(256,256,256,.5)
+}
+
+.main-image {
+  width: 400px;
+  height: auto;
 }
 
 .App-link {
@@ -78,5 +97,5 @@
   padding: 20px;
   max-width: 50%;
   min-height: 100%;
-  background: rgb(256,256,256,.5)
+  background: rgb(256,256,256,.5);
 }

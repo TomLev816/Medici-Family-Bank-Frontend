@@ -1,4 +1,5 @@
 import React from 'react';
+import Swiper from 'react-id-swiper';
 
 // let listFamilyMembers = (props) => {
 //   console.log(props);
@@ -8,15 +9,29 @@ import React from 'react';
 // }
 
 export default function Menu(props) {
+
+  const params = {
+     slidesPerView: 3,
+     spaceBetween: 30,
+     pagination: {
+       el: '.swiper-pagination',
+       clickable: true,
+     }
+   };
+
   return (
-    <div>
-      {props.allFamilyMembers.map(familyMember => {
-       return  <h2
-                  key={familyMember.id}
-                  onClick={() => props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}>
-                  {familyMember.name}
-                </h2>
-      })}
+    <div className="members-page-container">
+      <Swiper {...params}>
+        {props.allFamilyMembers.map(familyMember => {
+         return  <div
+                    className="slider-holder"
+                    key={familyMember.id}
+                    onClick={() => props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}>
+                    <h2>{familyMember.name}</h2>
+                    <img className="members-image" src={familyMember.image_src} alt=""></img>
+                  </div>
+        })}
+      </Swiper>
     </div>
   );
 }

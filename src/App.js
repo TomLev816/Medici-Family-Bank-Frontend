@@ -79,7 +79,8 @@ class App extends Component {
             <Holdings allTangibleAssets={this.state.allTangibleAssets}
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
-              /> : null}    
+              /> : null}
+          {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}   
         </>
   }
   render() {
