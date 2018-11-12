@@ -7,13 +7,16 @@ import Swiper from 'react-id-swiper';
 export default class Holdings extends Component {
 
   renderCurrency = () => {
-    const filteredCurrency = this.props.allCurrencyHoldings.filter((currency) => {
-      return currency.family_member_id === this.props.selectedFamilyMember.id
-    })
-    return <div>Florins: {filteredCurrency[0].value}</div>
+    // const filteredCurrency = this.props.allCurrencyHoldings.filter((currency) => {
+    //   console.log('Currency obj',currency, 'Fam Member', this.props.selectedFamilyMember);
+    //   return currency.family_member_id === this.props.selectedFamilyMember.id
+    // })
+
+    return <div>Florins: {this.props.selectedFamilyMember.currency_holdings[0].value}</div>
   }//end of render currency
 
   renderHoldings = () => {
+    console.log(this.props.selectedFamilyMember);
     const filteredTangibleAssets = this.props.allTangibleAssets.filter((tangibleAsset) => {
       return tangibleAsset.family_member_id === this.props.selectedFamilyMember.id
     })
