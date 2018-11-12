@@ -70,6 +70,18 @@ class App extends Component {
     }, this.changeSelectedPage(page));
   }
 
+  sellHolding = (holdingObj) => {
+    console.log(holdingObj)
+    const holdingId = holdingObj.id
+    fetch(`http://localhost:3000/api/v1/tangible_assets/${holdingId}`, {method: "DELETE"})
+    .then( (r) => {
+      console.log(r)
+      this.setState((currentState) => {
+        return { allTangibleAssets: this.state.allTangibleAssets.filter(asset => asset.id !== holdingId)}
+      }, console.log(this.state.allTangibleAssets))
+    })
+  }
+
   renderCurrentPage = () => {
     return <>
           {this.state.selectedPage === 'menu' ? <Menu changeSelectedPage={this.changeSelectedPage}/> : null }
@@ -79,8 +91,9 @@ class App extends Component {
             <Holdings allTangibleAssets={this.state.allTangibleAssets}
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
+                      sellHolding={this.sellHolding}
               /> : null}
-          {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}   
+          {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}
         </>
   }
   render() {
