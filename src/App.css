@@ -54,6 +54,11 @@
   height: 400px;
 }
 
+.holdings-show-image {
+  width: 400px;
+  height: auto;
+}
+
 .members-page-container {
   height: 80%;
   width: 100%;

@@ -21,12 +21,10 @@ export default class Holdings extends Component {
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
     return filteredTangibleAssets.map( (asset) => {
-      return <div key={asset.id} className="slider-holder">
+      return <div key={asset.id} className="slider-holder" onClick={() => this.props.changeSelectedHolding('holdingShowPage', asset)}>
         <h1>{asset.name}</h1>
         <h3>Asset Value: {asset.value}</h3>
         <img className="holdings-image" src={asset.image_src} alt=""></img>
-        <button onClick={() => this.props.sellHolding(asset)}>Selll Holding</button>
-        <p>{asset.description}</p>
       </div>
     })
 

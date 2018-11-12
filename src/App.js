@@ -7,6 +7,7 @@ import FamilyMemberShow from './components/FamilyMemberShow.js'
 import Holdings from './components/Holdings.js'
 import AboutPage from './components/AboutPage.js'
 import MarketPage from './components/MarketPage.js'
+import HoldingShow from './components/HoldingShow.js'
 
 
 
@@ -17,6 +18,7 @@ class App extends Component {
     allCurrencyHoldings: [],
     selectedFamilyMember: '',
     selectedPage: 'homepage',
+    selectedHolding: ''
   }
 
   componentDidMount = () => {
@@ -74,6 +76,12 @@ class App extends Component {
     }, this.changeSelectedPage(page));
   }
 
+  changeSelectedHolding = (page, holdingObj) => {
+    this.setState({
+      selectedHolding: holdingObj,
+    }, this.changeSelectedPage(page));
+  }
+
   sellHolding = (holdingObj) => {
 
     const holdingId = holdingObj.id
@@ -108,7 +116,11 @@ class App extends Component {
     })
 
     this.setState((currentState) => {
-      return { allCurrencyHoldings: newCurrencyHoldingArray, allTangibleAssets:newTangibelAssetArray }
+      return {
+        allCurrencyHoldings: newCurrencyHoldingArray,
+        allTangibleAssets: newTangibelAssetArray,
+        selectedPage: 'viewHoldings',
+      }
       }, () => console.log(this.state.allCurrencyHoldings))
 
     fetch(`http://localhost:3000/api/v1/tangible_assets/${holdingId}`, {
@@ -160,7 +172,7 @@ class App extends Component {
             <Holdings allTangibleAssets={this.state.allTangibleAssets}
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
-                      sellHolding={this.sellHolding}
+                      changeSelectedHolding={this.changeSelectedHolding}
               /> : null}
           {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}
           {this.state.selectedPage==="goToMarket" ? <MarketPage
@@ -169,6 +181,7 @@ class App extends Component {
             selectedFamilyMember={this.state.selectedFamilyMember}
             buyHolding={this.buyHolding}
           />: null}
+          {this.state.selectedPage==='holdingShowPage' ? <HoldingShow asset={this.state.selectedHolding} changeSelectedPage={this.changeSelectedPage} sellHolding={this.sellHolding}/> : null}
         </>
   }
   render() {
