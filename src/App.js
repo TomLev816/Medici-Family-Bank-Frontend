@@ -61,7 +61,7 @@ class App extends Component {
   changeSelectedPage = (page) => {
     this.setState({
       selectedPage: page
-    }, () => console.log(this.state.selectedPage));
+    });
   }
 
   changeSelectedFamilyMember = (familyMemberObj, page) => {
@@ -71,16 +71,75 @@ class App extends Component {
   }
 
   sellHolding = (holdingObj) => {
-    console.log(holdingObj)
+
     const holdingId = holdingObj.id
-    fetch(`http://localhost:3000/api/v1/tangible_assets/${holdingId}`, {method: "DELETE"})
-    .then( (r) => {
-      console.log(r)
-      this.setState((currentState) => {
-        return { allTangibleAssets: this.state.allTangibleAssets.filter(asset => asset.id !== holdingId)}
-      }, console.log(this.state.allTangibleAssets))
+    let oldCurrentSellerCurrency = this.state.allCurrencyHoldings.find(holding => holding.family_member_id === holdingObj.family_member_id).value
+    const newCurrentSellerCurrencyHolding = oldCurrentSellerCurrency + holdingObj.value
+
+    let currentBankerCurrency = this.state.allCurrencyHoldings.find(holding => holding.family_member_id === 1).value
+    const newBankerCurrency = currentBankerCurrency - holdingObj.value
+
+    const newCurrencyHoldingArray = this.state.allCurrencyHoldings.map((currencyObj) => {
+      if (currencyObj.family_member_id === holdingObj.family_member_id){
+        currencyObj.value = newCurrentSellerCurrencyHolding
+        return currencyObj
+      }
+      else if (currencyObj.family_member_id === 1) {
+        currencyObj.value = newBankerCurrency
+        return currencyObj
+      }
+      else {
+        return currencyObj
+      }
     })
-  }
+
+   const newTangibelAssetArray = this.state.allTangibleAssets.map( (asset) => {
+      if (asset.id === holdingId){
+        asset.family_member_id = 1
+        return asset
+      }
+      else {
+        return asset
+      }
+    })
+
+    this.setState((currentState) => {
+      return { allCurrencyHoldings: newCurrencyHoldingArray, allTangibleAssets:newTangibelAssetArray }
+      }, () => console.log(this.state.allCurrencyHoldings))
+
+    fetch(`http://localhost:3000/api/v1/tangible_assets/${holdingId}`, {
+      method: "PATCH",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        family_member_id: 1
+      })
+    })  // end of fetch 1
+
+    fetch(`http://localhost:3000/api/v1/currency_holdings/${holdingObj.family_member_id}`,{
+      method: "PATCH",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        value: newCurrentSellerCurrencyHolding
+      })
+    })
+
+    fetch('http://localhost:3000/api/v1/currency_holdings/1',{
+        method: "PATCH",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          value: newBankerCurrency
+        })
+    })// end of fetch 3
+  }// end of sell holding
 
   renderCurrentPage = () => {
     return <>

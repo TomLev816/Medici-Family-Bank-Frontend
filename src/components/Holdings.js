@@ -10,7 +10,6 @@ export default class Holdings extends Component {
     const filteredCurrency = this.props.allCurrencyHoldings.filter((currency) => {
       return currency.family_member_id === this.props.selectedFamilyMember.id
     })
-    console.log(filteredCurrency);
     return <div>Florins: {filteredCurrency[0].value}</div>
   }//end of render currency
 
@@ -22,7 +21,7 @@ export default class Holdings extends Component {
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
     return filteredTangibleAssets.map( (asset) => {
-      return <div key={asset.id} className="slider-holder" onClick={() => console.log(asset)}>
+      return <div key={asset.id} className="slider-holder">
         <h1>{asset.name}</h1>
         <h3>Asset Value: {asset.value}</h3>
         <img className="holdings-image" src={asset.image_src} alt=""></img>
@@ -34,7 +33,6 @@ export default class Holdings extends Component {
   }// end of render holdings
 
   render() {
-    console.log(this.props)
     const params = {
        slidesPerView: 3,
        spaceBetween: 30,
