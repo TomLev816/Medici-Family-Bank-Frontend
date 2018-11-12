@@ -46,6 +46,7 @@
 }
 
 .familyMenu:hover {
+  color: black;
   background-color: rgb(256,256,256,.5)
 }
 
@@ -69,18 +70,34 @@
 }
 
 .members-image{
+  border-radius: 25px;
   width: 400px;
   height: 500px;
 }
 
 .slider-holder {
-  width: 40%;
+  font-family: 'Italianno';
+  font-size: 3em;
+  padding-bottom: 50px;
+  border-radius: 50px;
+  background:  rgb(256,256,256,.35);
 }
 
 
 .main-container {
   color: rgba(89, 23, 14);
-  background: rgb(256,256,256,.5)
+}
+
+.holdings-index-header {
+  border-radius: 50px;
+  border-color: rgba(89, 23, 14);
+  border-width: thick;
+  padding: 15px;
+  margin-left: 400px;
+  margin-right: 400px;
+  background: rgb(225,215,108,1);
+  font-family: 'Italianno';
+  font-size: 2em;
 }
 
 .main-image {
@@ -101,14 +118,69 @@
   }
 }
 
+/* FamilyMemberShowPage */
 
 .familyMemberShowPage {
-  padding: 20px;
-  max-width: 50%;
+  margin: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
   min-height: 100%;
-  background: rgb(256,256,256,.5);
+  background: rgb(256,256,256,.25);
+  font-size: 2em;
+  border-radius: 75px;
 }
 
+.member-show-name-birth {
+  font-family: 'Italianno';
+}
+
+.member-show-decs-img {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.member-page-desc {
+  font-family: 'Playball', cursive;
+  margin-left: 40px;
+  padding: 10px;
+}
+
+.family-show-buttons {
+  font-family: 'Playball', cursive;
+  font-size: 1em;
+  margin: 20px;
+  padding: 15px;
+  background: rgb(89,23,14,.75);
+  border-radius: 25px;
+}
+
+.family-show-buttons:hover {
+  background: rgb(89,23,14,1);
+}
+
+/* End of FamilyMemberShowPage */
+
 .menu-page {
+  margin-top: 100px;
+  margin-left: 400px;
+  margin-right: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item {
+  min-width: 600px;
   background: rgb(256,256,256,.5);
+  margin: 50px;
+  border-radius: 25px;
+}
+
+.menu-item:hover {
+  color: white;
+  background: rgb(0,0,0,.5);
 }

@@ -41,7 +41,6 @@ render () {
       </input>
     </div>
     <div className="members-page-container">
-
       <Swiper {...params}>
         {this.props.allFamilyMembers
           .filter(member => member.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))

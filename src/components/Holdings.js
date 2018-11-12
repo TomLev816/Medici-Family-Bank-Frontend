@@ -26,7 +26,7 @@ export default class Holdings extends Component {
     return filteredTangibleAssets.map( (asset) => {
       return <div key={asset.id} className="slider-holder" onClick={() => this.props.changeSelectedHolding('holdingShowPage', asset)}>
         <h1>{asset.name}</h1>
-        <h3>Asset Value: {asset.value}</h3>
+        <h2>Asset Value: {asset.value}</h2>
         <img className="holdings-image" src={asset.image_src} alt=""></img>
       </div>
     })
@@ -45,8 +45,10 @@ export default class Holdings extends Component {
 
     return (
       <div className="main-container">
-        <h1>Holdings of {this.props.selectedFamilyMember.name} </h1>
-        {this.renderCurrency()}
+        <div className="holdings-index-header">
+          <h1>Holdings of {this.props.selectedFamilyMember.name} </h1>
+          {this.renderCurrency()}
+        </div>
         <Swiper {...params}>
           {this.renderHoldings()}
         </Swiper>
