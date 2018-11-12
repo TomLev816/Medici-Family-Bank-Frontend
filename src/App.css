@@ -45,6 +45,10 @@
   color: white;
 }
 
+.familyMenu:hover {
+  background-color: rgb(256,256,256,.5)
+}
+
 .holdings-image{
   width: 400px;
   height: 400px;
@@ -97,5 +101,9 @@
   padding: 20px;
   max-width: 50%;
   min-height: 100%;
+  background: rgb(256,256,256,.5);
+}
+
+.menu-page {
   background: rgb(256,256,256,.5);
 }

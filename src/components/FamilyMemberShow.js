@@ -14,6 +14,7 @@ export default class FamilyMemberShow extends Component {
         <div>{this.props.selectedFamilyMember.biography}</div>
         <img src={this.props.selectedFamilyMember.image_src} alt=""></img>
         <div onClick={() => this.props.changeSelectedPage('viewHoldings')}>View Holdings</div>
+        <div onClick={() => this.props.changeSelectedPage('goToMarket')}>Go To Marketplace</div>
         <div onClick={() => this.props.changeSelectedPage('menu')} >Go Back to Menu</div>
       </div>
     );

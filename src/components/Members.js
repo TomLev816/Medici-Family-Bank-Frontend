@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
 
 // let listFamilyMembers = (props) => {
@@ -8,8 +8,20 @@ import Swiper from 'react-id-swiper';
 //   })
 // }
 
-export default function Menu(props) {
+export default class Menu extends Component {
+  state = {
+    searchTerm: '',
+    filterOn: false
+  }
 
+  handleChange = (event) => {
+    this.setState({
+      searchTerm: event.target.value,
+      filterOn: true
+    });
+  }
+
+render () {
   const params = {
      slidesPerView: 3,
      spaceBetween: 30,
@@ -20,18 +32,32 @@ export default function Menu(props) {
    };
 
   return (
+    <>
+    <div>
+      <input
+        value={this.state.searchTerm}
+        placeholder="search marketplace"
+        onChange={this.handleChange}>
+      </input>
+    </div>
     <div className="members-page-container">
+
       <Swiper {...params}>
-        {props.allFamilyMembers.map(familyMember => {
+        {this.props.allFamilyMembers
+          .filter(member => member.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+          .map(familyMember => {
+            console.log(familyMember)
          return  <div
                     className="slider-holder"
                     key={familyMember.id}
-                    onClick={() => props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}>
+                    onClick={() => this.props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}>
                     <h2>{familyMember.name}</h2>
                     <img className="members-image" src={familyMember.image_src} alt=""></img>
                   </div>
         })}
       </Swiper>
     </div>
+    </>
   );
+  }
 }

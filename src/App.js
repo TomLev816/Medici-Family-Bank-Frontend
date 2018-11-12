@@ -6,6 +6,7 @@ import Members from './components/Members.js'
 import FamilyMemberShow from './components/FamilyMemberShow.js'
 import Holdings from './components/Holdings.js'
 import AboutPage from './components/AboutPage.js'
+import MarketPage from './components/MarketPage.js'
 
 
 
@@ -15,7 +16,7 @@ class App extends Component {
     allTangibleAssets: [],
     allCurrencyHoldings: [],
     selectedFamilyMember: '',
-    selectedPage: 'homepage'
+    selectedPage: 'homepage',
   }
 
   componentDidMount = () => {
@@ -32,7 +33,10 @@ class App extends Component {
     .then(res => res.json())
     .then(resJson => {
       this.setState((currentState) => {
-        return {allFamilyMembers: resJson}
+        return {
+          allFamilyMembers: resJson,
+          selectedFamilyMember: resJson[1]
+        }
       });
     })
   }
@@ -141,6 +145,12 @@ class App extends Component {
     })// end of fetch 3
   }// end of sell holding
 
+  buyHolding = (assetObj) => {
+    console.log(assetObj);
+  }
+
+
+
   renderCurrentPage = () => {
     return <>
           {this.state.selectedPage === 'menu' ? <Menu changeSelectedPage={this.changeSelectedPage}/> : null }
@@ -153,6 +163,12 @@ class App extends Component {
                       sellHolding={this.sellHolding}
               /> : null}
           {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}
+          {this.state.selectedPage==="goToMarket" ? <MarketPage
+            allCurrencyHoldings={this.state.allCurrencyHoldings}
+            allTangibleAssets={this.state.allTangibleAssets}
+            selectedFamilyMember={this.state.selectedFamilyMember}
+            buyHolding={this.buyHolding}
+          />: null}
         </>
   }
   render() {
