@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Holding from "./Holding.js"
 
 
+
 export default class Holdings extends Component {
+
+
 
   renderCurrency = () => {
     const filteredCurrency = this.props.allCurrencyHoldings.filter((currency) => {
@@ -19,7 +22,7 @@ export default class Holdings extends Component {
 
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
-    return filteredTangibleAssets.map( asset => <Holding key={asset.id} asset={asset}/>)
+    return filteredTangibleAssets.map( asset => <Holding key={asset.id} sellHolding={this.props.sellHolding} asset={asset}/>)
 
   }// end of render holdings
 
@@ -29,7 +32,9 @@ export default class Holdings extends Component {
       <div className="main-container">
         <h1>Holdings of {this.props.selectedFamilyMember.name} </h1>
         {this.renderCurrency()}
+
         {this.renderHoldings()}
+
       </div>
     );
   }

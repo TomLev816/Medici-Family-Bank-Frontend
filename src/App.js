@@ -7,6 +7,10 @@ import FamilyMemberShow from './components/FamilyMemberShow.js'
 import Holdings from './components/Holdings.js'
 import AboutPage from './components/AboutPage.js'
 
+let apiEndpointBaseURL = "https://api.harvardartmuseums.org/objectc?144ac60-e450-11e8-96ad-3b2d4ac679c6rabbitPaintings";
+let apiPeriods = 'https://api.harvardartmuseums.org/period'
+let apikey =  'c144ac60-e450-11e8-96ad-3b2d4ac679c6';
+
 
 class App extends Component {
   state = {
@@ -17,10 +21,17 @@ class App extends Component {
     selectedPage: 'homepage'
   }
 
+  fetchArtWork = () => {
+    fetch(apiPeriods + "?apikey=" + apikey)
+      .then(res => res.json())
+      .then(resJson => console.log(resJson))
+  }
+
   componentDidMount = () => {
     this.fetchFamilyMembers()
     this.fetchTangiableAssets()
     this.fetchCurrencyHoldings()
+    this.fetchArtWork()
   }
 
   fetchFamilyMembers = () => {
@@ -66,13 +77,26 @@ class App extends Component {
     }, this.changeSelectedPage(page));
   }
 
+  sellHolding = (holdingObj) => {
+    console.log(holdingObj)
+    const holdingId = holdingObj.id
+    fetch(`http://localhost:3000/api/v1/tangible_assets/${holdingId}`, {method: "DELETE"})
+    .then( (r) => {
+      console.log(r)
+      this.setState((currentState) => {
+        return { allTangibleAssets: this.state.allTangibleAssets.filter(asset => asset.id !== holdingId)}
+      }, console.log(this.state.allTangibleAssets))
+    })
+  }
+
   renderCurrentPage = () => {
     return <>
           {this.state.selectedPage === 'menu' ? <Menu changeSelectedPage={this.changeSelectedPage}/> : null }
           {this.state.selectedPage === 'selectFamilyMember' ? <Members allFamilyMembers={this.state.allFamilyMembers} changeSelectedFamilyMember={this.changeSelectedFamilyMember}/> : null}
           {this.state.selectedPage === 'familyMemberShow' ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectedPage={this.changeSelectedPage}/> : null}
           {this.state.selectedPage === 'viewHoldings' ?
-            <Holdings allTangibleAssets={this.state.allTangibleAssets}
+            <Holdings sellHolding={this.sellHolding}
+                      allTangibleAssets={this.state.allTangibleAssets}
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
               /> : null}
