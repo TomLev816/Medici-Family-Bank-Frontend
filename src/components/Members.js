@@ -45,13 +45,14 @@ render () {
         {this.props.allFamilyMembers
           .filter(member => member.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
           .map(familyMember => {
-            console.log(familyMember)
+          console.log(familyMember)
          return  <div
-                    className="slider-holder"
                     key={familyMember.id}
                     onClick={() => this.props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}>
-                    <h2>{familyMember.name}</h2>
-                    <img className="members-image" src={familyMember.image_src} alt=""></img>
+                    <div className="slider-holder">
+                      <h2>{familyMember.name}</h2>
+                      <img className="members-image" src={familyMember.image_src} alt=""></img>
+                    </div>
                   </div>
         })}
       </Swiper>

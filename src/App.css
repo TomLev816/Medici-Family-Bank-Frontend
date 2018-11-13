@@ -79,7 +79,12 @@
   height: 400px;
 }
 
+.swiper-slide {
+  max-width: 500px;
+}
+
 .slider-holder {
+  max-width: 500px;
   font-family: 'Italianno';
   font-size: 1.5em;
   padding-bottom: 30px;
