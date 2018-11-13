@@ -21,16 +21,17 @@
 }
 
 .familyName {
+  font-family: 'Italianno';
   width: 33%;
   background-color: #282c34;
-  font-size: .87em;
+  font-size: 1.5em;
   color: white;
   min-height: 70px;
 }
 
 .logo {
   width: 34%;
-  min-height: 70px;
+  min-height: 124px;
   background-image:
     url('./images/Medici_bank_logo.jpg');
     background-size: contain;
@@ -38,10 +39,11 @@
 }
 
 .familyMenu {
+  font-family: 'Italianno';
   width: 33%;
   min-height: 70px;
   background-color: #282c34;
-  font-size: .87em;
+  font-size: 1.5em;
   color: white;
 }
 
@@ -133,6 +135,22 @@
   color: #61dafb;
 }
 
+.about-container {
+  background:  rgb(256,256,256,.35);
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.about-header {
+  font-family: 'Italianno';
+  font-size: 2em
+}
+
+.about-paragaph {
+  font-size: 1.5em;
+  font-family: 'Playball', cursive;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -187,7 +205,7 @@
 /* End of FamilyMemberShowPage */
 
 .menu-page {
-  margin-top: 100px;
+  margin-top: 20px;
   margin-left: 400px;
   margin-right: 400px;
   display: flex;
@@ -198,9 +216,11 @@
 }
 
 .menu-item {
-  min-width: 600px;
+  font-family: 'Italianno';
+  font-size: 1.5em;
+  min-width: 500px;
   background: rgb(256,256,256,.5);
-  margin: 50px;
+  margin: 25px;
   border-radius: 25px;
 }
 
