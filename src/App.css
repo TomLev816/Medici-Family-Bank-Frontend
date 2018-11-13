@@ -23,14 +23,14 @@
 .familyName {
   width: 33%;
   background-color: #282c34;
-  font-size: calc(20px);
+  font-size: .87em;
   color: white;
-  min-height: 100px;
+  min-height: 70px;
 }
 
 .logo {
   width: 34%;
-  min-height: 100px;
+  min-height: 70px;
   background-image:
     url('./images/Medici_bank_logo.jpg');
     background-size: contain;
@@ -39,9 +39,9 @@
 
 .familyMenu {
   width: 33%;
-  min-height: 100px;
+  min-height: 70px;
   background-color: #282c34;
-  font-size: calc(20px);
+  font-size: .87em;
   color: white;
 }
 
@@ -51,17 +51,21 @@
 }
 
 .holdings-image{
-  width: 400px;
-  height: 400px;
+  width: 250px;
+  height: 300px;
+  overflow: hidden;
+  background-position: center;
+  border-radius: 25px;
 }
 
 .holdings-show-image {
+  border-radius: 25px;
   width: 400px;
   height: auto;
 }
 
 .members-page-container {
-  height: 80%;
+  height: 85%;
   width: 100%;
   display: flex;
   position: fixed;
@@ -70,19 +74,39 @@
 }
 
 .members-image{
-  border-radius: 25px;
+  border-radius: 20px;
   width: 400px;
-  height: 500px;
+  height: 400px;
 }
 
 .slider-holder {
   font-family: 'Italianno';
-  font-size: 3em;
-  padding-bottom: 50px;
-  border-radius: 50px;
+  font-size: 1.5em;
+  padding-bottom: 30px;
+  border-radius: 30px;
   background:  rgb(256,256,256,.35);
 }
 
+.slider-holder:hover {
+  background:  rgb(0,0,0,.35);
+}
+
+.holding-show-page {
+  font-family: 'Italianno';
+  font-size: 1.5em;
+}
+
+.market-index-holder {
+  font-family: 'Italianno';
+  font-size: 1em;
+  padding-bottom: 30px;
+  border-radius: 30px;
+  background:  rgb(256,256,256,.35);
+}
+
+.market-index-holder:hover {
+  background:  rgb(0,0,0,.35);
+}
 
 .main-container {
   color: rgba(89, 23, 14);
@@ -90,14 +114,14 @@
 
 .holdings-index-header {
   border-radius: 50px;
-  border-color: rgba(89, 23, 14);
+  color: rgba(227, 215, 108);
   border-width: thick;
-  padding: 15px;
   margin-left: 400px;
   margin-right: 400px;
-  background: rgb(225,215,108,1);
+  margin-bottom: 50px;
+  background: rgb(89,23,14,.80);
   font-family: 'Italianno';
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .main-image {
@@ -122,11 +146,11 @@
 
 .familyMemberShowPage {
   margin: 20px;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 50px;
+  padding-right: 50px;
   min-height: 100%;
   background: rgb(256,256,256,.25);
-  font-size: 2em;
+  font-size: 1.5em;
   border-radius: 75px;
 }
 
@@ -143,15 +167,15 @@
 
 .member-page-desc {
   font-family: 'Playball', cursive;
-  margin-left: 40px;
+  margin-left: 30px;
   padding: 10px;
 }
 
 .family-show-buttons {
   font-family: 'Playball', cursive;
-  font-size: 1em;
+  font-size: .75em;
   margin: 20px;
-  padding: 15px;
+  padding: 10px;
   background: rgb(89,23,14,.75);
   border-radius: 25px;
 }

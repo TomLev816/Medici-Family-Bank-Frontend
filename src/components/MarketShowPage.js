@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class HoldingShow extends Component {
+export default class MarketShowPage extends Component {
   render() {
     console.log(this.props)
     return (
@@ -18,8 +18,8 @@ export default class HoldingShow extends Component {
             <h3> Asset Value: {this.props.asset.value} </h3>
           </div>
         </div>
-        <button className='family-show-buttons' onClick={() => this.props.sellHolding(this.props.asset)}>Selll Holding</button>
-        <button className='family-show-buttons' onClick={() => this.props.changeSelectedPage('viewHoldings')}>Go Back to Holdings</button>
+        <button className='family-show-buttons' onClick={() => this.props.buyHolding(this.props.asset)}>Buy Holding</button>
+        <button className='family-show-buttons' onClick={() => this.props.changeSelectedPage('goToMarket')}>Go Back to market page</button>
       </div>
     )
   }
