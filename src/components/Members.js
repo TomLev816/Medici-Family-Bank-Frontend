@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import FamilyMemberShow from './FamilyMemberShow.js'
 
 // let listFamilyMembers = (props) => {
 //   console.log(props);
@@ -31,6 +33,7 @@ render () {
      }
    };
 
+   console.log(this.props);
   return (
     <>
     <div>
@@ -46,15 +49,27 @@ render () {
           .filter(member => member.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
           .map(familyMember => {
             console.log(familyMember)
-         return  <div
-                    className="slider-holder"
-                    key={familyMember.id}
-                    onClick={() => this.props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}>
-                    <h2>{familyMember.name}</h2>
-                    <img className="members-image" src={familyMember.image_src} alt=""></img>
-                  </div>
+         return  (
+          <NavLink to={`/family-members/${familyMember.id}`}>
+            <div
+              onClick={() => this.props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}
+              className="slider-holder"
+              key={familyMember.id}>
+              <h2>{familyMember.name}</h2>
+              <img className="members-image" src={familyMember.image_src} alt=""></img>
+            </div>
+          </NavLink>
+          )
         })}
       </Swiper>
+      <Router>
+        <Route
+          path={`/family-members/${this.props.selectedFamilyMember.id}`}
+          render={(props) => <FamilyMemberShow {...props}
+          selectedFamilyMember={this.props.selectedFamilyMember}
+          /> }
+          />
+      </Router>
     </div>
     </>
   );

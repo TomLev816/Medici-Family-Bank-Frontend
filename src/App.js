@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import MenuBar from './components/MenuBar.js';
+import NavBar from './components/NavBar.js';
 import Menu from './components/Menu.js'
 import Members from './components/Members.js'
 import FamilyMemberShow from './components/FamilyMemberShow.js'
@@ -9,6 +9,10 @@ import AboutPage from './components/AboutPage.js'
 import MarketPage from './components/MarketPage.js'
 import HoldingShow from './components/HoldingShow.js'
 import MarketShowPage from './components/MarketShowPage.js'
+
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 
 
@@ -171,7 +175,7 @@ class App extends Component {
     let newTangibelAssetArrayForBuying
     let sellerCurrencyAfterPurchase
     let buyerCurrencyAfterPurchase
-    
+
     if (buyerCurrencyBeforePurchase >= assetObj.value) {
       buyerCurrencyAfterPurchase = buyerCurrencyBeforePurchase - assetObj.value
       sellerCurrencyAfterPurchase = seller.currency_holdings[0].value + assetObj.value
@@ -260,35 +264,67 @@ class App extends Component {
 
   renderCurrentPage = () => {
     return <>
-          {this.state.selectedPage === 'menu' ? <Menu changeSelectedPage={this.changeSelectedPage}/> : null }
-          {this.state.selectedPage === 'selectFamilyMember' ? <Members allFamilyMembers={this.state.allFamilyMembers} changeSelectedFamilyMember={this.changeSelectedFamilyMember}/> : null}
+
           {this.state.selectedPage === 'familyMemberShow' ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectedPage={this.changeSelectedPage}/> : null}
+
           {this.state.selectedPage === 'viewHoldings' ?
             <Holdings allTangibleAssets={this.state.allTangibleAssets}
                       allCurrencyHoldings={this.state.allCurrencyHoldings}
                       selectedFamilyMember={this.state.selectedFamilyMember}
                       changeSelectedHolding={this.changeSelectedHolding}
               /> : null}
-          {this.state.selectedPage==="aboutPage" ? <AboutPage/>: null}
-          {this.state.selectedPage==="goToMarket" ? <MarketPage
-            changeSelectedHolding={this.changeSelectedHolding}
-            allCurrencyHoldings={this.state.allCurrencyHoldings}
-            allTangibleAssets={this.state.allTangibleAssets}
-            selectedFamilyMember={this.state.selectedFamilyMember}
-            buyHolding={this.buyHolding}
-          />: null}
+
           {this.state.selectedPage==='holdingShowPage' ? <HoldingShow asset={this.state.selectedHolding} changeSelectedPage={this.changeSelectedPage} sellHolding={this.sellHolding}/> : null}
+
           {this.state.selectedPage==='marketShowPage' ? <MarketShowPage asset={this.state.selectedHolding} changeSelectedPage={this.changeSelectedPage} buyHolding={this.buyHolding}/> : null}
+
         </>
   }
   render() {
     return (
-      <div className="App">
-        <MenuBar allFamilyMembers={this.state.allFamilyMembers} changeSelectedPage={this.changeSelectedPage}/>
-        {this.renderCurrentPage()}
-      </div>
+      <Router>
+        <div className="App">
+            <NavBar allFamilyMembers={this.state.allFamilyMembers} changeSelectedPage={this.changeSelectedPage}/>
+
+            <Route exact path="/about" component={AboutPage}  />
+
+            <Route exact path="/menu" component={Menu} />
+
+            <Route
+              path='/family-members'
+              render={(props) => <Members {...props}
+              allFamilyMembers={this.state.allFamilyMembers} changeSelectedFamilyMember={this.changeSelectedFamilyMember}
+              selectedFamilyMember={this.state.selectedFamilyMember}/> }
+            />
+
+            <Route
+                path='/market'
+                render={(props) => <MarketPage {...props}
+                  changeSelectedHolding={this.changeSelectedHolding}
+                  allCurrencyHoldings={this.state.allCurrencyHoldings}
+                  allTangibleAssets={this.state.allTangibleAssets}
+                  selectedFamilyMember={this.state.selectedFamilyMember}
+                  buyHolding={this.buyHolding}
+                 /> }
+              />
+
+              <Route
+                path='/holdings'
+                render={(props) => <Holdings {...props}
+                  allTangibleAssets={this.state.allTangibleAssets}
+                  allCurrencyHoldings={this.state.allCurrencyHoldings}
+                  selectedFamilyMember={this.state.selectedFamilyMember}
+                  changeSelectedHolding={this.changeSelectedHolding} /> }
+              />
+
+
+
+          {this.renderCurrentPage()}
+        </div>
+      </Router>
     );
   }
 }
+
 
 export default App;

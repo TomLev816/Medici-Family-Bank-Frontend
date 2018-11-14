@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 // import Holding from "./Holding.js"
 
 
@@ -24,11 +25,28 @@ export default class Holdings extends Component {
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
     return filteredTangibleAssets.map( (asset) => {
-      return <div key={asset.id} className="slider-holder" onClick={() => this.props.changeSelectedHolding('holdingShowPage', asset)}>
-        <h1>{asset.name}</h1>
-        <h2>Asset Value: {asset.value}</h2>
-        <img className="holdings-image" src={asset.image_src} alt=""></img>
-      </div>
+      return(
+      <NavLink
+        to={`/holdings/${asset.id}`}
+      >
+        <div key={asset.id} className="slider-holder"
+          onClick={() => this.props.changeSelectedHolding('holdingShowPage', asset)}>
+          <h1>{asset.name}</h1>
+          <h2>Asset Value: {asset.value}</h2>
+          <img className="holdings-image" src={asset.image_src} alt=""></img>
+          <Router>
+            <Route
+              path={`/holdings/${asset.id}`}
+              render={(props) => <Holdings {...props}
+                asset={this.state.selectedHolding}
+                changeSelectedPage={this.changeSelectedPage}
+                sellHolding={this.sellHolding}
+               /> }
+            />
+        </Router>
+        </div>
+      </NavLink>
+      )
     })
 
   }// end of render holdings
