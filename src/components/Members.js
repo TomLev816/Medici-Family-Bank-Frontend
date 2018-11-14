@@ -50,7 +50,7 @@ render () {
           .map(familyMember => {
             console.log(familyMember)
          return  (
-          <NavLink to={`/family-members/${familyMember.id}`}>
+          <NavLink to={`/family-members-show`}>
             <div
               onClick={() => this.props.changeSelectedFamilyMember(familyMember, 'familyMemberShow')}
               className="slider-holder"
@@ -62,14 +62,6 @@ render () {
           )
         })}
       </Swiper>
-      <Router>
-        <Route
-          path={`/family-members/${this.props.selectedFamilyMember.id}`}
-          render={(props) => <FamilyMemberShow {...props}
-          selectedFamilyMember={this.props.selectedFamilyMember}
-          /> }
-          />
-      </Router>
     </div>
     </>
   );

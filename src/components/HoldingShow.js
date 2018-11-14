@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import FamilyMemberShow from './FamilyMemberShow.js'
 
 export default class HoldingShow extends Component {
   render() {
@@ -18,8 +19,18 @@ export default class HoldingShow extends Component {
             <h3> Asset Value: {this.props.asset.value} </h3>
           </div>
         </div>
-        <button className='family-show-buttons' onClick={() => this.props.sellHolding(this.props.asset)}>Selll Holding</button>
-        <button className='family-show-buttons' onClick={() => this.props.changeSelectedPage('viewHoldings')}>Go Back to Holdings</button>
+          <NavLink to='/holdings'
+            activeStyle={{ color: 'red' }}
+            className='family-show-buttons'
+            onClick={() => this.props.sellHolding(this.props.asset)}>
+              Selll Holding
+          </NavLink>
+          <NavLink
+            to='/family-members-show'
+            className='family-show-buttons'
+            onClick={() => this.props.changeSelectedPage('viewHoldings')}>
+              Go Back to Holdings
+          </NavLink>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
 export default class MarketShowPage extends Component {
@@ -18,8 +19,10 @@ export default class MarketShowPage extends Component {
             <h3> Asset Value: {this.props.asset.value} </h3>
           </div>
         </div>
-        <button className='family-show-buttons' onClick={() => this.props.buyHolding(this.props.asset)}>Buy Holding</button>
-        <button className='family-show-buttons' onClick={() => this.props.changeSelectedPage('goToMarket')}>Go Back to market page</button>
+        <NavLink to='/holdings' className='family-show-buttons' onClick={() => this.props.buyHolding(this.props.asset)}>Buy Holding</NavLink>
+        <NavLink to='/market' className='family-show-buttons' onClick={() => this.props.changeSelectedPage('goToMarket')}>
+            Go Back to market page
+        </NavLink>
       </div>
     )
   }

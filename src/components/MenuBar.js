@@ -12,7 +12,9 @@ const MenuBar = (props) => {
     </div>
     <div className='logo'></div>
     <div className='familyMenu' onClick={() => props.changeSelectedPage('menu')}>
-      <h1>Menu</h1>
+      <div>
+        <h1>Menu</h1>
+      </div>
     </div>
   </div>
   );

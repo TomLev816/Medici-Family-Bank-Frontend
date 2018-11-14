@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Swiper from 'react-id-swiper';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 export default class MarketPage extends Component {
   state = {
@@ -26,11 +27,15 @@ export default class MarketPage extends Component {
 
     // const allSelectedHoldings = [...filteredCurrency, filteredTangibleAssets].flat()
     return filteredTangibleAssets.map( (asset) => {
-      return <div key={asset.id} className="market-index-holder" onClick={() => this.props.changeSelectedHolding('marketShowPage', asset)}>
-        <h1>{asset.name}</h1>
-        <h3>Asset Value: {asset.value}</h3>
-        <img className="holdings-image" src={asset.image_src} alt=""></img>
-      </div>
+      return (
+      <NavLink to={`/market-show`}>
+        <div key={asset.id} className="market-index-holder" onClick={() => this.props.changeSelectedHolding('marketShowPage', asset)}>
+          <h1>{asset.name}</h1>
+          <h3>Asset Value: {asset.value}</h3>
+          <img className="holdings-image" src={asset.image_src} alt=""></img>
+        </div>
+      </NavLink>
+      )
     })
 
   }// end of render holdings

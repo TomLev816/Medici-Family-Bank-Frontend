@@ -259,27 +259,6 @@ class App extends Component {
   } // end of buy holding
 
 
-
-
-
-  renderCurrentPage = () => {
-    return <>
-
-          {this.state.selectedPage === 'familyMemberShow' ? <FamilyMemberShow selectedFamilyMember={this.state.selectedFamilyMember} changeSelectedPage={this.changeSelectedPage}/> : null}
-
-          {this.state.selectedPage === 'viewHoldings' ?
-            <Holdings allTangibleAssets={this.state.allTangibleAssets}
-                      allCurrencyHoldings={this.state.allCurrencyHoldings}
-                      selectedFamilyMember={this.state.selectedFamilyMember}
-                      changeSelectedHolding={this.changeSelectedHolding}
-              /> : null}
-
-          {this.state.selectedPage==='holdingShowPage' ? <HoldingShow asset={this.state.selectedHolding} changeSelectedPage={this.changeSelectedPage} sellHolding={this.sellHolding}/> : null}
-
-          {this.state.selectedPage==='marketShowPage' ? <MarketShowPage asset={this.state.selectedHolding} changeSelectedPage={this.changeSelectedPage} buyHolding={this.buyHolding}/> : null}
-
-        </>
-  }
   render() {
     return (
       <Router>
@@ -317,9 +296,28 @@ class App extends Component {
                   changeSelectedHolding={this.changeSelectedHolding} /> }
               />
 
+              <Route
+                path='/market-show'
+                render={(props) => <MarketShowPage {...props}
+                  asset={this.state.selectedHolding}
+                  changeSelectedPage={this.changeSelectedPage}
+                  buyHolding={this.buyHolding} /> }
+              />
 
+              <Route
+                path='/holdings-show'
+                render={(props) => <HoldingShow {...props}
+                  asset={this.state.selectedHolding}
+                  changeSelectedPage={this.changeSelectedPage}
+                  sellHolding={this.sellHolding} /> }
+              />
 
-          {this.renderCurrentPage()}
+              <Route
+                path='/family-members-show'
+                render={(props) => <FamilyMemberShow {...props}
+                  selectedFamilyMember={this.state.selectedFamilyMember}
+                  changeSelectedPage={this.changeSelectedPage} /> }
+              />
         </div>
       </Router>
     );

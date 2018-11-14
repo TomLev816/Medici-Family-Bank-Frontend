@@ -15,23 +15,17 @@ export default function Menu(props) {
         </NavLink>
       </div>
       <div className="menu-item">
-          <NavLink
-            to="/family-members"
-            >
+          <NavLink to="/family-members">
             <h1>Select Family Member</h1>
           </NavLink>
       </div>
       <div className="menu-item">
-        <NavLink
-          to="/market"
-          >
+        <NavLink to="/market" >
           <h1>Go to Marketplace</h1>
         </NavLink>
       </div>
       <div className="menu-item">
-        <NavLink
-          to="/holdings"
-          >
+        <NavLink to="/holdings" >
           <h1>View Your Holdings</h1>
         </NavLink>
       </div>

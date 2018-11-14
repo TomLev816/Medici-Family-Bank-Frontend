@@ -27,23 +27,13 @@ export default class Holdings extends Component {
     return filteredTangibleAssets.map( (asset) => {
       return(
       <NavLink
-        to={`/holdings/${asset.id}`}
+        to={`/holdings-show`}
       >
         <div key={asset.id} className="slider-holder"
           onClick={() => this.props.changeSelectedHolding('holdingShowPage', asset)}>
           <h1>{asset.name}</h1>
           <h2>Asset Value: {asset.value}</h2>
           <img className="holdings-image" src={asset.image_src} alt=""></img>
-          <Router>
-            <Route
-              path={`/holdings/${asset.id}`}
-              render={(props) => <Holdings {...props}
-                asset={this.state.selectedHolding}
-                changeSelectedPage={this.changeSelectedPage}
-                sellHolding={this.sellHolding}
-               /> }
-            />
-        </Router>
         </div>
       </NavLink>
       )

@@ -47,6 +47,7 @@
   color: white;
 }
 
+
 .familyMenu:hover {
   color: black;
   background-color: rgb(256,256,256,.5)
@@ -166,6 +167,7 @@
   margin: 20px;
   padding-left: 50px;
   padding-right: 50px;
+  padding-bottom: 50px;
   min-height: 100%;
   background: rgb(256,256,256,.25);
   font-size: 1.5em;
@@ -183,11 +185,17 @@
   align-items: flex-start;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .member-page-desc {
   font-family: 'Playball', cursive;
   margin-left: 30px;
   padding: 10px;
 }
+
 
 .family-show-buttons {
   font-family: 'Playball', cursive;
@@ -196,6 +204,7 @@
   padding: 10px;
   background: rgb(89,23,14,.75);
   border-radius: 25px;
+
 }
 
 .family-show-buttons:hover {
@@ -214,6 +223,8 @@
   justify-content: center;
   align-items: center;
 }
+
+
 
 .menu-item {
   font-family: 'Italianno';

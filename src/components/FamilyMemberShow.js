@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Holdings from './Holdings'
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
 
@@ -19,10 +20,10 @@ export default class FamilyMemberShow extends Component {
           </div>
           <div className='member-page-desc'><b>About: </b>{this.props.selectedFamilyMember.biography}</div>
         </div>
-        <button className="family-show-buttons" onClick={() => this.props.changeSelectedPage('viewHoldings')}>View Holdings</button>
-        <button className="family-show-buttons" onClick={() => this.props.changeSelectedPage('goToMarket')}>Go To Marketplace</button>
-        <button className="family-show-buttons" onClick={() => this.props.changeSelectedPage('menu')} >Go Back to Menu</button>
-        <button className="family-show-buttons" onClick={() => this.props.changeSelectedPage('selectFamilyMember')} >Back to Select Member</button>
+        <NavLink to='/holdings' className="family-show-buttons" onClick={() => this.props.changeSelectedPage('viewHoldings')}>View Holdings</NavLink>
+        <NavLink to='/market' className="family-show-buttons" onClick={() => this.props.changeSelectedPage('goToMarket')}>Go To Marketplace</NavLink>
+        <NavLink to='/menu' className="family-show-buttons" onClick={() => this.props.changeSelectedPage('menu')} >Go Back to Menu</NavLink>
+        <NavLink to='/family-members' className="family-show-buttons" onClick={() => this.props.changeSelectedPage('selectFamilyMember')} >Back to Select Member</NavLink>
       </div>
     );
   }
