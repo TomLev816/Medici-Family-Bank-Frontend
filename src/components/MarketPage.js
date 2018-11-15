@@ -12,7 +12,7 @@ export default class MarketPage extends Component {
     const filteredCurrency = this.props.allCurrencyHoldings.filter((currency) => {
       return currency.family_member_id === this.props.selectedFamilyMember.id
     })
-    return <div>Florins to Spend: {filteredCurrency[0].value}</div>
+    return <div className='florins'>Florins to Spend: {filteredCurrency[0].value}</div>
   }
 
   renderHoldings = () => {
@@ -65,7 +65,6 @@ export default class MarketPage extends Component {
         <div className='search-bar'>
           <input
             value={this.state.searchTerm}
-            placeholder="search marketplace"
             onChange={this.handleChange}>
           </input>
         </div>

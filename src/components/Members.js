@@ -35,10 +35,9 @@ render () {
 
   return (
     <>
-    <div>
+    <div className='search-bar'>
       <input
         value={this.state.searchTerm}
-        placeholder="search marketplace"
         onChange={this.handleChange}>
       </input>
     </div>

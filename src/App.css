@@ -4,7 +4,7 @@
     url('./images/medici_homepage.jpg');
     background-size: cover;
     background-position: center center;
-  min-height: 100vh;
+    min-height: 100vh;
   opacity: .85;
 }
 
@@ -28,6 +28,16 @@
   font-size: 1.5em;
 }
 
+.florins {
+  font-family: 'Italianno';
+  font-size: 2em;
+  background: rgb(89,23,14,.8);
+  color: rgb(254,244,84,1);
+  margin-left: 40%;
+  margin-right: 40%;
+  border-radius: 10px;
+}
+
 .logo {
   width: 34%;
   min-height: 124px;
@@ -44,10 +54,21 @@
   margin-left: 17px;
   margin-top: 17px;
   z-index: 1;
+  background-color: transparent;
+  outline-color: red;
+}
 
+.search-bar input {
+  font-family: 'Italianno';
+  font-size: 2em;
+  height: 30px;
+  color: rgb(254,244,84,1);
+  width: 300px;
+  background-color: rgb(89,23,14,.8);
 }
 
 .search-bar:hover {
+  background-color: transparent;
   outline:none;
 }
 
