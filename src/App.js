@@ -13,9 +13,6 @@ import MarketShowPage from './components/MarketShowPage.js'
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-
-
-
 class App extends Component {
   state = {
     allFamilyMembers: [],
@@ -156,13 +153,10 @@ class App extends Component {
 
 
   buyHolding = (assetObj) => {
-    console.log(assetObj)
     let buyer = this.state.selectedFamilyMember
     let seller = this.state.allFamilyMembers[0]
-    // console.log('Old buyer-money', buyer.currency_holdings[0].value, 'asset', assetObj.value, seller.currency_holdings[0].value);
 
     let buyerCurrencyBeforePurchase = this.state.allCurrencyHoldings.filter(currency => currency.id === buyer.id)[0].value
-    console.log(buyerCurrencyBeforePurchase);
     let newCurrencyArrayForBuying
     let newTangibelAssetArrayForBuying
     let sellerCurrencyAfterPurchase
@@ -172,8 +166,7 @@ class App extends Component {
       buyerCurrencyAfterPurchase = buyerCurrencyBeforePurchase - assetObj.value
       sellerCurrencyAfterPurchase = seller.currency_holdings[0].value + assetObj.value
 
-      // console.log(this.state.allCurrencyHoldings);
-        newCurrencyArrayForBuying = this.state.allCurrencyHoldings.map((currencyObj) => {
+      newCurrencyArrayForBuying = this.state.allCurrencyHoldings.map((currencyObj) => {
         if (currencyObj.family_member_id === buyer.id){
           currencyObj.value = buyerCurrencyAfterPurchase
           return currencyObj
@@ -202,7 +195,7 @@ class App extends Component {
           allTangibleAssets: newTangibelAssetArrayForBuying,
           selectedPage: 'viewHoldings',
          }
-      }, () => console.log(this.state))// setting state
+      })// setting state
 
       fetch(`http://localhost:3000/api/v1/tangible_assets/${assetObj.id}`, {
         method: "PATCH",
@@ -215,7 +208,6 @@ class App extends Component {
         })
       })  // end of fetch 1
       .then(r => r.json())
-      .then(r => console.log(r))
 
       fetch(`http://localhost:3000/api/v1/currency_holdings/${buyer.id}`,{
         method: "PATCH",
@@ -228,7 +220,6 @@ class App extends Component {
         })
       })
       .then(r => r.json())
-      .then(r => console.log(r))
 
       fetch('http://localhost:3000/api/v1/currency_holdings/1',{
           method: "PATCH",
@@ -241,13 +232,10 @@ class App extends Component {
           })
       })// end of fetch 3
       .then(r => r.json())
-      .then(r => console.log(r))
     }// end of big old if (bof)
     else {
       alert("Can't Afford This")
     }
-
-
   } // end of buy holding
 
 

@@ -23,10 +23,9 @@
 .familyName {
   font-family: 'Italianno';
   width: 33%;
-  background-color: #282c34;
-  font-size: 1.5em;
-  color: white;
   min-height: 70px;
+  background-color:rgb(256,256,256,.5);
+  font-size: 1.5em;
 }
 
 .logo {
@@ -45,7 +44,7 @@
   margin-left: 17px;
   margin-top: 17px;
   z-index: 1;
-  
+
 }
 
 .search-bar:hover {
@@ -56,15 +55,14 @@
   font-family: 'Italianno';
   width: 33%;
   min-height: 70px;
-  background-color: #282c34;
+  background-color:rgb(256,256,256,.5);
   font-size: 1.5em;
-  color: white;
 }
 
 
 .familyMenu:hover {
   color: black;
-  background-color: rgb(256,256,256,.5)
+  background-color: rgb(256,256,256,.8)
 }
 
 .holdings-image{
@@ -152,8 +150,12 @@
 
 .about-container {
   background:  rgb(256,256,256,.35);
+  margin-bottom: 50px;
+  margin-top: 50px;
   margin-left: 100px;
   margin-right: 100px;
+  padding: 50px;
+  border-radius: 20px;
 }
 
 .about-header {
@@ -237,8 +239,6 @@ a {
   justify-content: center;
   align-items: center;
 }
-
-
 
 .menu-item {
   font-family: 'Italianno';

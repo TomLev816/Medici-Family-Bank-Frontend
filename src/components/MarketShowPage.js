@@ -16,7 +16,7 @@ export default class MarketShowPage extends Component {
             {this.props.asset.description}
           </div>
           <div>
-            <h3> Asset Value: {this.props.asset.value} </h3>
+            <h3> Asset Value: {this.props.asset.value} Florins</h3>
           </div>
         </div>
         <NavLink to='/holdings' className='family-show-buttons' onClick={() => this.props.buyHolding(this.props.asset)}>Buy Holding</NavLink>

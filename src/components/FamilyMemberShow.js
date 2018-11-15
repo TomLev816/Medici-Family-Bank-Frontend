@@ -16,7 +16,7 @@ export default class FamilyMemberShow extends Component {
         </div>
         <div className='member-show-decs-img'>
           <div >
-            <img src={this.props.selectedFamilyMember.image_src} alt=""></img>
+            <img src={this.props.selectedFamilyMember.image_src} alt="" ></img>
           </div>
           <div className='member-page-desc'><b>About: </b>{this.props.selectedFamilyMember.biography}</div>
         </div>

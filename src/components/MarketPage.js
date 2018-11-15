@@ -31,7 +31,7 @@ export default class MarketPage extends Component {
       <NavLink to={`/market-show`}>
         <div key={asset.id} className="market-index-holder" onClick={() => this.props.changeSelectedHolding(asset)}>
           <h1>{asset.name}</h1>
-          <h3>Asset Value: {asset.value}</h3>
+          <h3>Asset Value: {asset.value} Florins</h3>
           <img className="holdings-image" src={asset.image_src} alt=""></img>
         </div>
       </NavLink>

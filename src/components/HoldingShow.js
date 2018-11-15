@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import FamilyMemberShow from './FamilyMemberShow.js'
+
 
 export default class HoldingShow extends Component {
   render() {
@@ -16,7 +16,7 @@ export default class HoldingShow extends Component {
             {this.props.asset.description}
           </div>
           <div>
-            <h3> Asset Value: {this.props.asset.value} </h3>
+            <h3> Asset Value: {this.props.asset.value} Florins</h3>
           </div>
         </div>
           <NavLink to='/holdings'

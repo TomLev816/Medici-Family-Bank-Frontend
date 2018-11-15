@@ -33,7 +33,6 @@ render () {
      }
    };
 
-   console.log(this.props);
   return (
     <>
     <div>
@@ -49,7 +48,7 @@ render () {
           .filter(member => member.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
           .map(familyMember => {
          return  (
-          <NavLink to={`/family-members-show`}>
+          <NavLink key={familyMember.id} to={`/family-members-show`}>
             <div
               onClick={() => this.props.changeSelectedFamilyMember(familyMember)}
               className="slider-holder"
