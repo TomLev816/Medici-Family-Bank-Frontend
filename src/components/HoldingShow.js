@@ -27,8 +27,7 @@ export default class HoldingShow extends Component {
           </NavLink>
           <NavLink
             to='/family-members-show'
-            className='family-show-buttons'
-            onClick={() => this.props.changeSelectedPage('viewHoldings')}>
+            className='family-show-buttons'>
               Go Back to Holdings
           </NavLink>
       </div>

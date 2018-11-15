@@ -20,7 +20,7 @@ export default class MarketShowPage extends Component {
           </div>
         </div>
         <NavLink to='/holdings' className='family-show-buttons' onClick={() => this.props.buyHolding(this.props.asset)}>Buy Holding</NavLink>
-        <NavLink to='/market' className='family-show-buttons' onClick={() => this.props.changeSelectedPage('goToMarket')}>
+        <NavLink to='/market' className='family-show-buttons'>
             Go Back to market page
         </NavLink>
       </div>

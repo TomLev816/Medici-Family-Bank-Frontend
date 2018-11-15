@@ -30,7 +30,7 @@ export default class Holdings extends Component {
         to={`/holdings-show`}
       >
         <div key={asset.id} className="slider-holder"
-          onClick={() => this.props.changeSelectedHolding('holdingShowPage', asset)}>
+          onClick={() => this.props.changeSelectedHolding(asset)}>
           <h1>{asset.name}</h1>
           <h2>Asset Value: {asset.value}</h2>
           <img className="holdings-image" src={asset.image_src} alt=""></img>

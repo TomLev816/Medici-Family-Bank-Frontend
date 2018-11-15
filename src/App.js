@@ -32,9 +32,6 @@ class App extends Component {
     this.fetchCurrencyHoldings()
   }
 
-
-
-
   fetchFamilyMembers = () => {
   fetch('http://localhost:3000/api/v1/family_members')
     .then(res => res.json())
@@ -69,22 +66,17 @@ class App extends Component {
       })
   }
 
-  changeSelectedPage = (page) => {
+
+  changeSelectedFamilyMember = (familyMemberObj) => {
     this.setState({
-      selectedPage: page
+      selectedFamilyMember: familyMemberObj,
     });
   }
 
-  changeSelectedFamilyMember = (familyMemberObj, page) => {
-    this.setState({
-      selectedFamilyMember: familyMemberObj,
-    }, this.changeSelectedPage(page));
-  }
-
-  changeSelectedHolding = (page, holdingObj) => {
+  changeSelectedHolding = (holdingObj) => {
     this.setState({
       selectedHolding: holdingObj,
-    }, this.changeSelectedPage(page));
+    });
   }
 
   sellHolding = (holdingObj) => {

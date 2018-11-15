@@ -29,7 +29,7 @@ export default class MarketPage extends Component {
     return filteredTangibleAssets.map( (asset) => {
       return (
       <NavLink to={`/market-show`}>
-        <div key={asset.id} className="market-index-holder" onClick={() => this.props.changeSelectedHolding('marketShowPage', asset)}>
+        <div key={asset.id} className="market-index-holder" onClick={() => this.props.changeSelectedHolding(asset)}>
           <h1>{asset.name}</h1>
           <h3>Asset Value: {asset.value}</h3>
           <img className="holdings-image" src={asset.image_src} alt=""></img>
@@ -59,9 +59,10 @@ export default class MarketPage extends Component {
      };
 
 
+
     return (
       <div>
-        <div>
+        <div className='search-bar'>
           <input
             value={this.state.searchTerm}
             placeholder="search marketplace"

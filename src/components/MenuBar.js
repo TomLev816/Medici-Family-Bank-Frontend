@@ -11,8 +11,8 @@ const MenuBar = (props) => {
       <h1>MEDICI FAMILY</h1>
     </div>
     <div className='logo'></div>
-    <div className='familyMenu' onClick={() => props.changeSelectedPage('menu')}>
-      <div>
+    <div className='familyMenu'>
+      <div className='menu-in-navbar'>
         <h1>Menu</h1>
       </div>
     </div>

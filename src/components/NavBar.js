@@ -12,7 +12,7 @@ const NavBar = (props) => {
         <h1>MEDICI FAMILY</h1>
     </div>
     <div className='logo'></div>
-    <div className='familyMenu' onClick={() => props.changeSelectedPage('menu')}>
+    <div className='familyMenu'>
         <NavLink
           to="/menu"
           >
