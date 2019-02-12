@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   fetchFamilyMembers = () => {
-  fetch('http://localhost:3000/api/v1/family_members')
+  fetch('https://fast-reaches-39524.herokuapp.com/api/v1/family_members')
     .then(res => res.json())
     .then(resJson => {
       this.setState((currentState) => {
@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   fetchTangiableAssets = () => {
-    fetch('http://localhost:3000/api/v1/tangible_assets')
+    fetch('https://fast-reaches-39524.herokuapp.com/api/v1/tangible_assets')
       .then(res => res.json())
       .then(resJson => {
         this.setState((currentState) => {
@@ -54,7 +54,7 @@ class App extends Component {
 
   fetchCurrencyHoldings = () => {
     // console.log("hi from currency_holdings");
-    fetch('http://localhost:3000/api/v1/currency_holdings')
+    fetch('https://fast-reaches-39524.herokuapp.com/api/v1/currency_holdings')
       .then(res => res.json())
       .then((currencyRes) => {
         this.setState((currentState) => {
@@ -117,7 +117,7 @@ class App extends Component {
       }
       }, () => console.log(this.state.allCurrencyHoldings))
 
-    fetch(`http://localhost:3000/api/v1/tangible_assets/${holdingId}`, {
+    fetch(`https://fast-reaches-39524.herokuapp.com/api/v1/tangible_assets/${holdingId}`, {
       method: "PATCH",
       headers: {
         "Accept": "application/json",
@@ -128,7 +128,7 @@ class App extends Component {
       })
     })  // end of fetch 1
 
-    fetch(`http://localhost:3000/api/v1/currency_holdings/${holdingObj.family_member_id}`,{
+    fetch(`https://fast-reaches-39524.herokuapp.com/api/v1/currency_holdings/${holdingObj.family_member_id}`,{
       method: "PATCH",
       headers: {
         "Accept": "application/json",
@@ -139,7 +139,7 @@ class App extends Component {
       })
     })
 
-    fetch('http://localhost:3000/api/v1/currency_holdings/1',{
+    fetch('https://fast-reaches-39524.herokuapp.com/api/v1/currency_holdings/1',{
         method: "PATCH",
         headers: {
           "Accept": "application/json",
@@ -197,7 +197,7 @@ class App extends Component {
          }
       })// setting state
 
-      fetch(`http://localhost:3000/api/v1/tangible_assets/${assetObj.id}`, {
+      fetch(`https://fast-reaches-39524.herokuapp.com/api/v1/tangible_assets/${assetObj.id}`, {
         method: "PATCH",
         headers: {
           "Accept": "application/json",
@@ -209,7 +209,7 @@ class App extends Component {
       })  // end of fetch 1
       .then(r => r.json())
 
-      fetch(`http://localhost:3000/api/v1/currency_holdings/${buyer.id}`,{
+      fetch(`https://fast-reaches-39524.herokuapp.com/api/v1/currency_holdings/${buyer.id}`,{
         method: "PATCH",
         headers: {
           "Accept": "application/json",
@@ -221,7 +221,7 @@ class App extends Component {
       })
       .then(r => r.json())
 
-      fetch('http://localhost:3000/api/v1/currency_holdings/1',{
+      fetch('https://fast-reaches-39524.herokuapp.com/api/v1/currency_holdings/1',{
           method: "PATCH",
           headers: {
             "Accept": "application/json",
